@@ -9,9 +9,9 @@ import {
 import gql from 'graphql-tag';
 
 import Layout from '../components/Layout.server';
-import FeaturedCollection from '../components/FeaturedCollection';
+// import FeaturedCollection from '../components/FeaturedCollection';
 import ProductCard from '../components/ProductCard';
-import Welcome from '../components/Welcome.server';
+// import Welcome from '../components/Welcome.server';
 import {Suspense} from 'react';
 
 export default function Index({country = {isoCode: 'US'}}) {
@@ -72,13 +72,13 @@ function FeaturedProductsBox({country}) {
   });
 
   const collections = data ? flattenConnection(data.collections) : [];
-  const featuredProductsCollection = collections[0];
-  const featuredProducts = featuredProductsCollection
-    ? flattenConnection(featuredProductsCollection.products)
-    : null;
+  // const featuredProductsCollection = collections[0];
+  // const featuredProducts = featuredProductsCollection
+  //   ? flattenConnection(featuredProductsCollection.products)
+  //   : null;
 
   return (
-    <div className="bg-white p-12 shadow-xl rounded-xl mb-10">
+    <div className="bg-rose-200 p-12 shadow-xl rounded-xl mb-10">
       {featuredProductsCollection ? (
         <>
           <div className="flex justify-between items-center mb-8 text-md font-medium">
@@ -213,7 +213,7 @@ const QUERY = gql`
             width
             height
           }
-          products(first: 3) {
+          products(first: $numProducts) {
             edges {
               node {
                 handle
