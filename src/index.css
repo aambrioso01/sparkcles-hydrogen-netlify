@@ -25,8 +25,18 @@
   }
 }
 
+/* sparkcles */
+@font-face {
+  font-family: 'confectionregular';
+  src: url('confection-regular-webfont.woff2') format('woff2'),
+       url('confection-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   font-variant-ligatures: none;
+  font-family: 'confectionregular'; /* sparkcles */
 }
 
 html {
